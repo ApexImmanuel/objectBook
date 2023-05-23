@@ -31,9 +31,10 @@ submitButton.addEventListener("click", (e) => {
   });
 });
 console.log(bookObject);
-let checkbox = document.querySelector(".read");
-read.addEventListener("click", (e) => {
-  checkbox = (e.target.checked);
+let checkbox;
+  let read = document.querySelector(".read");
+  read.addEventListener("click", (e) => {
+  checkbox = e. target.checked;
 });
 
 // function Book(title, author, pages, read) {
