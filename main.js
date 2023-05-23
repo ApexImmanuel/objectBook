@@ -3,11 +3,6 @@ const addBookButton = document.querySelector("#addBookButton");
 const closeFormButton = document.querySelector("#closeform");
 const divPopup = document.querySelector(".formpopup");
 
-addBookButton.addEventListener("click", () => {
-  openForm();
-});
-closeFormButton.addEventListener("click", closeForm);
-
 function openForm() {
   divPopup.style.display = "block";
   closeFormButton.style.display = "block";
@@ -16,6 +11,18 @@ function closeForm() {
   divPopup.style.display = "none";
   closeFormButton.style.display = "none";
 }
+addBookButton.addEventListener("click", openForm);
+closeFormButton.addEventListener("click", closeForm);
+/////////////////////
+/////////////////////
+// Getting users input
+const submitButton = document.querySelector("#submit");
+submitButton.addEventListener("click", function () {
+  let bookTitle = document.querySelector(".inputTitle").value;
+  let bookAuthor = document.querySelector(".inputAuthor").value;
+  let bookPages = document.querySelector(".inputPages").value;
+});
+
 
 
 function Book(title, author, pages, read) {

@@ -12,28 +12,27 @@
     <div class="addBook">
         <button id="addBookButton" class="button">Add Book</button>
         <button id="closeform" class="button">Close Form</button>
-        
-    </div>
-    <div class="formpopup">
-        <form action="#">
-            <div>
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div>
-                <label for="author">Author</label>
-                <input type="text" name="author" id="author">
-            </div>
-            <div>
-                <label for="pages">Pages</label>
-                <input type="text" name="pages" id="pages">
-            </div>
-            <div>
-                <label for="read">Read</label>
-                <input type="checkbox" name="read" id="read">
-            </div>
-            <button class="button" type="submit">Submit</button>
-        </form>
+        <div class="formpopup">
+            <form action="#">
+                <div>
+                    <label for="title">Title</label>
+                    <input class="inputTitle" placeholder="Title" type="text" name="title" id="title">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input class="inputAuthor" placeholder="Author" type="text" name="author" id="author">
+                </div>
+                <div>
+                    <label for="pages">Pages</label>
+                    <input class="inputPages" placeholder="Pages" type="number" name="pages" id="pages">
+                </div>
+                <div>
+                    <label for="read">Read</label>
+                    <input type="checkbox" name="read" id="read">
+                </div>
+                <button id="submit" class="button" type="button">Submit</button>
+            </form>
+        </div>
     </div>
 
     <script src="./main.js"></script>
