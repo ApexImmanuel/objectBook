@@ -18,7 +18,8 @@ closeFormButton.addEventListener("click", closeForm);
 // Getting users input
 let bookObject = [];
 const submitButton = document.querySelector("#submit");
-submitButton.addEventListener("click", function () {
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault()
   let bookTitle = document.querySelector(".inputTitle").value;
   let bookAuthor = document.querySelector(".inputAuthor").value;
   let bookPages = document.querySelector(".inputPages").value;
@@ -26,10 +27,14 @@ submitButton.addEventListener("click", function () {
     title: bookTitle,
     author: bookAuthor,
     pages: bookPages,
+    read: checkbox,
   });
 });
-
 console.log(bookObject);
+let checkbox = document.querySelector(".read");
+read.addEventListener("click", (e) => {
+  checkbox = (e.target.checked);
+});
 
 // function Book(title, author, pages, read) {
 //     this.title = title;
