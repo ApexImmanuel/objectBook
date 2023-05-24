@@ -1,3 +1,7 @@
+let objStorage = 0;
+let gridContainer = document.querySelector(".gridContainer");
+let hello = "Hello World";
+
 //Form POPUP
 const addBookButton = document.querySelector("#addBookButton");
 const closeFormButton = document.querySelector("#closeform");
@@ -23,6 +27,7 @@ submitButton.addEventListener("click", (e) => {
   let bookTitle = document.querySelector(".inputTitle").value;
   let bookAuthor = document.querySelector(".inputAuthor").value;
   let bookPages = document.querySelector(".inputPages").value;
+  objStorage++;
   bookObject.push({
     title: bookTitle,
     author: bookAuthor,
@@ -36,6 +41,23 @@ let checkbox;
   read.addEventListener("click", (e) => {
   checkbox = e. target.checked;
 });
+
+for (obj of bookObject) {
+  
+}
+
+// report cardContainer//
+for (let i = 0; i < 1; i++) {
+  let reportCard = document.createElement("div");
+  let pTitle = document.createElement("p");
+  let pAuthor = document.createElement("p");
+  let pPages = document.createElement("p");
+  reportCard.style.textAlign = "center";
+  reportCard.appendChild(pTitle);
+  reportCard.appendChild(pAuthor);
+  reportCard.appendChild(pPages);
+  gridContainer.appendChild(reportCard);
+}
 
 // function Book(title, author, pages, read) {
 //     this.title = title;
