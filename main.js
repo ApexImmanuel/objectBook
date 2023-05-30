@@ -1,4 +1,3 @@
-  let objStorage = 0;
   //Form POPUP
   const addBookButton = document.querySelector("#addBookButton");
   const closeFormButton = document.querySelector("#closeform");
@@ -17,66 +16,76 @@
   /////////////////////
   /////////////////////
   // Getting users input
+  
   let bookObject = [];
   const submitButton = document.querySelector("#submit");
   submitButton.addEventListener("click", (e) => {
     e.preventDefault()
-    let bookTitle = document.querySelector(".inputTitle").value;
-    let bookAuthor = document.querySelector(".inputAuthor").value;
-    let bookPages = document.querySelector(".inputPages").value;
-    // objStorage++;
+    let inputTitle = document.querySelector(".inputTitle");
+    let inputAuthor = document.querySelector(".inputAuthor");
+    let inputPages = document.querySelector(".inputPages");
+    const bookTitle = inputTitle.value;
+    const bookAuthor = inputAuthor.value;
+    const bookPages = inputPages.value;
     bookObject.push({
       title: bookTitle,
       author: bookAuthor,
       pages: bookPages,
-      // read: checkRead(read),
     });
+    inputTitle.value = "";
+    inputAuthor.value = "";
+    inputPages.value = "";
+  
+    libraryBook(bookObject)
+    bookObject.shift();
+
   });
   console.log(bookObject);
-
-  let checkbox;
-  let read = document.querySelector(".read");
-  read.addEventListener("click", (e) => {
-    checkbox = e. target.checked;
-  });
-
-  function checkRead(read) {
-    if (read === true) {
-      true;
-    }
-    false
-  }
 
   ///////////////////////////
   // report cardContainer//
   let testObj = [
     {title: "One piece", author: "Oda", pages: 900},
-    {title: "Bible", author: "God", pages: 230},
-    {title: "Hentai", author: "Anime", pages: 230},
-    {title: "Bible", author: "God", pages: 230},
-    {title: "Bible", author: "God", pages: 230},
+    {title: "The Narnia", author: "Logan", pages: 230},
+    {title: "Driver", author: "Dom", pages: 230},
+    {title: "Killer Bee", author: "Kage", pages: 230},
+    {title: "Tokyo Ghoul", author: "Becham", pages: 230},
+    {title: "Toomy", author: "Jimbei", pages: 230},
+    {title: "Randys", author: "King", pages: 230},
   ]
+
 
   function libraryBook(books) {
     let gridContainer = document.querySelector(".gridContainer");
     for (const book of books) {
       const bookCard = document.createElement("div");
+      let spanTitle = document.createElement("span");
+      let spanAuthor = document.createElement("span");
+      let spanPages = document.createElement("span");
       const pTitle = document.createElement("p");
       const pAuthor = document.createElement("p");
       const pPages = document.createElement("p");
 
-      pTitle.textContent = `Book Title: ${book.title}`;
-      pAuthor .textContent = `Author: ${book.author}`;
-      pPages.textContent = `Pages: ${book.pages}`;
+      pTitle.textContent = `Book Title: `
+      pAuthor.textContent = `Author: `
+      pPages.textContent = `Pages: `
+
+      spanTitle.textContent = `${book.title}`;
+      spanAuthor.textContent = `${book.author}`;
+      spanPages.textContent = `${book.pages}`;
 
       gridContainer.appendChild(bookCard);
       bookCard.appendChild(pTitle);
       bookCard.appendChild(pAuthor);
       bookCard.appendChild(pPages);
-      console.log(book);
+      pTitle.appendChild(spanTitle);
+      pAuthor.appendChild(spanAuthor);
+      pPages.appendChild(spanPages);
     }
   }
-  libraryBook(testObj)
+  // libraryBook(bookObject);
+
+//function that checks the value of the array again(rerendering);
 
 
   // function Book(title, author, pages, read) {
