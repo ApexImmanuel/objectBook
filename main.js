@@ -56,6 +56,8 @@
       let spanPages = document.createElement("span");
       let spanRead = document.createElement("span");
       let deleteButton = document.createElement("button");
+      let readStatusButton = document.createElement("button");
+      readStatusButton.textContent= "Change Read Status";
       deleteButton.id = "deleteButton";
       deleteButton.textContent = "X"
 
@@ -84,9 +86,24 @@
       pPages.appendChild(spanPages);
       pRead.appendChild(spanRead);
       bookCard.appendChild(deleteButton);
+      readStatusButton.addEventListener("click", () => {
+        if (spanRead.textContent == "Yes") {
+          spanRead.textContent = "No";
+        } else {
+          spanRead.textContent = "Yes";
+        }
+      })
       deleteButton.addEventListener("click", () => {
         bookCard.remove();
       });
+      bookCard.appendChild(readStatusButton);
+    }
+  }
+  function readStatus(spanRead) {
+    if (spanRead === "Yes") {
+      spanRead.textContent = "No"
+    } else if (spanRead === "No") {
+      spanRead.textContent = "Yes"
     }
   }
 
