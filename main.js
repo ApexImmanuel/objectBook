@@ -24,6 +24,8 @@
     let inputTitle = document.querySelector(".inputTitle");
     let inputAuthor = document.querySelector(".inputAuthor");
     let inputPages = document.querySelector(".inputPages");
+    const readSelect  = document.querySelector("select");
+    const readValue = readSelect.value;
     const bookTitle = inputTitle.value;
     const bookAuthor = inputAuthor.value;
     const bookPages = inputPages.value;
@@ -31,30 +33,20 @@
       title: bookTitle,
       author: bookAuthor,
       pages: bookPages,
+      read: readValue,
     });
     inputTitle.value = "";
     inputAuthor.value = "";
     inputPages.value = "";
   
-    libraryBook(bookObject)
+    libraryBook(bookObject);
     bookObject.shift();
-
-  });
-  console.log(bookObject);
+    closeForm();
+  }); 
+  
 
   ///////////////////////////
   // report cardContainer//
-  let testObj = [
-    {title: "One piece", author: "Oda", pages: 900},
-    {title: "The Narnia", author: "Logan", pages: 230},
-    {title: "Driver", author: "Dom", pages: 230},
-    {title: "Killer Bee", author: "Kage", pages: 230},
-    {title: "Tokyo Ghoul", author: "Becham", pages: 230},
-    {title: "Toomy", author: "Jimbei", pages: 230},
-    {title: "Randys", author: "King", pages: 230},
-  ]
-
-
   function libraryBook(books) {
     let gridContainer = document.querySelector(".gridContainer");
     for (const book of books) {
@@ -62,32 +54,46 @@
       let spanTitle = document.createElement("span");
       let spanAuthor = document.createElement("span");
       let spanPages = document.createElement("span");
+      let spanRead = document.createElement("span");
+      let deleteButton = document.createElement("button");
+      deleteButton.id = "deleteButton";
+      deleteButton.textContent = "X"
+
       const pTitle = document.createElement("p");
       const pAuthor = document.createElement("p");
       const pPages = document.createElement("p");
+      const pRead = document.createElement("p");
 
-      pTitle.textContent = `Book Title: `
-      pAuthor.textContent = `Author: `
-      pPages.textContent = `Pages: `
+      pTitle.textContent = `Book Title: `;
+      pAuthor.textContent = `Author: `;
+      pPages.textContent = `Pages: `;
+      pRead.textContent = "Have you read it? ";
 
       spanTitle.textContent = `${book.title}`;
       spanAuthor.textContent = `${book.author}`;
       spanPages.textContent = `${book.pages}`;
+      spanRead.textContent = `${book.read}`;
 
       gridContainer.appendChild(bookCard);
       bookCard.appendChild(pTitle);
       bookCard.appendChild(pAuthor);
       bookCard.appendChild(pPages);
+      bookCard.appendChild(pRead);
       pTitle.appendChild(spanTitle);
       pAuthor.appendChild(spanAuthor);
       pPages.appendChild(spanPages);
+      pRead.appendChild(spanRead);
+      bookCard.appendChild(deleteButton);
+      deleteButton.addEventListener("click", () => {
+        bookCard.remove();
+      });
     }
   }
-  // libraryBook(bookObject);
-
-//function that checks the value of the array again(rerendering);
 
 
+
+
+  
   // function Book(title, author, pages, read) {
   //     this.title = title;
   //     this.author = author;

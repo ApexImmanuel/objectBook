@@ -84,7 +84,7 @@ form div input {
 /* Gridcontainer */
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 10rem));
     gap: 1rem;
 }
 .gridContainer div {
@@ -98,8 +98,19 @@ form div input {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 1.2rem;
+    position: relative;
 }
 span {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
+}
+
+#deleteButton {
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+    font-weight: bold;
+    background-color: rgb(225, 48, 48);
+    color: white;
+    border-radius: 50%;
 }
