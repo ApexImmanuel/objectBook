@@ -48,10 +48,16 @@ h1 {
 #closeform {
     background-color: red;
     display: none;
+    margin-bottom: 3rem;
 }
 
 .formpopup {
     display: none;
+    position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
 }
 .formpopup > form {
     background-color: #fff;
@@ -84,13 +90,13 @@ form div input {
 /* Gridcontainer */
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 10rem));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 30vh));
     gap: 1rem;
 }
 .gridContainer div {
     /* text-align: center; */
     padding: 1.5rem;
-    height: 7rem;
+    /* height: 7rem; */
     background: rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -113,4 +119,31 @@ span {
     background-color: rgb(225, 48, 48);
     color: white;
     border-radius: 50%;
+}
+
+.statusButton {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-top: 1rem;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
