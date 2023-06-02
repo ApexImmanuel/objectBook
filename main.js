@@ -20,7 +20,7 @@
   let bookObject = [];
   const submitButton = document.querySelector("#submit");
   submitButton.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let inputTitle = document.querySelector(".inputTitle");
     let inputAuthor = document.querySelector(".inputAuthor");
     let inputPages = document.querySelector(".inputPages");
@@ -55,11 +55,14 @@
       let spanAuthor = document.createElement("span");
       let spanPages = document.createElement("span");
       let spanRead = document.createElement("span");
+
       let deleteButton = document.createElement("button");
-      let readStatusButton = document.createElement("button");
-      readStatusButton.textContent= "Change Read Status";
       deleteButton.id = "deleteButton";
       deleteButton.textContent = "X"
+
+      let readStatusButton = document.createElement("button");
+      readStatusButton.classList.add("statusButton");
+      readStatusButton.textContent= "Change Read Status";
 
       const pTitle = document.createElement("p");
       const pAuthor = document.createElement("p");
@@ -88,8 +91,10 @@
       bookCard.appendChild(deleteButton);
       readStatusButton.addEventListener("click", () => {
         if (spanRead.textContent == "Yes") {
+          readStatusButton.style.backgroundColor = "red"
           spanRead.textContent = "No";
         } else {
+          readStatusButton.style.backgroundColor = "green"
           spanRead.textContent = "Yes";
         }
       })
@@ -99,18 +104,7 @@
       bookCard.appendChild(readStatusButton);
     }
   }
-  function readStatus(spanRead) {
-    if (spanRead === "Yes") {
-      spanRead.textContent = "No"
-    } else if (spanRead === "No") {
-      spanRead.textContent = "Yes"
-    }
-  }
 
-
-
-
-  
   // function Book(title, author, pages, read) {
   //     this.title = title;
   //     this.author = author;
